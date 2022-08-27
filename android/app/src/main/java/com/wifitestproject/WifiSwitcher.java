@@ -31,21 +31,19 @@ public class WifiSwitcher extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public static void switchWifi() {
-        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE); 
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(!wifiManager.isWifiEnabled());
     }
 
-    @ReactMethod
-    static public void startWork() {
-        if(!isSwitching) {
-            WorkManager workManager = WorkManager.getInstance(context);
-            workManager.enqueue(new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(15, TimeUnit.SECONDS).build());
-            isSwitching = true;
-        } else {
-            WorkManager workManager = WorkManager.getInstance(context);
-            workManager.cancelAllWork();
-            isSwitching = false;
-        }
-    }
+		@ReactMethod
+		public static void setWifiEnabled(){
+			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+			wifiManager.setWifiEnabled(true);
+		}
 
+		@ReactMethod
+		public static void setWifiDisable(){
+			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+			wifiManager.setWifiEnabled(false);
+		}
 }

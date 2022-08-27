@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -94,13 +95,22 @@ const App: () => ReactNode = () => {
           }}
         >
 
-          <Button
-            title="Clique para começar a festa de liga-desliga!"
-            color="#841584"
-            onPress={() => {
-              WifiSwitcher.startWork();
-            }}
-          />
+          <>
+            <Button
+              title="Ligar wifi"
+              color="#841584"
+              onPress={() => {
+                WifiSwitcher.setWifiEnabled();
+              }}
+            />
+            <Button
+              title="Desligar Wifi"
+              color="#200456"
+              onPress={() => {
+                WifiSwitcher.setWifiDisable();
+              }}
+            />
+          </>
 
           {/* <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this

@@ -22,10 +22,10 @@ public class MyWorker extends Worker {
 
     @Override
     public ListenableWorker.Result doWork() {
-        WifiSwitcher.switchWifi();
+        // WifiSwitcher.switchWifi();
 
-        WorkManager workManager = WorkManager.getInstance(WifiSwitcher.context);
-        workManager.enqueue(new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(15, TimeUnit.SECONDS).build());
+        // WorkManager workManager = WorkManager.getInstance(WifiSwitcher.context);
+        // workManager.enqueue(new OneTimeWorkRequest.Builder(MyWorker.class).setInitialDelay(15, TimeUnit.SECONDS).build());
 
         return ListenableWorker.Result.success();
     }
