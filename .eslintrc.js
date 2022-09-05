@@ -21,6 +21,14 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    'no-tabs': 'off',
+    'no-mixed-spaces-and-tabs': 0,
+    'no-console': 0,
+    'jsx-ident': [2, 'tab'],
+    'react/no-unstable-nested-components': [
+      'error',
+      { allowAsProps: false },
+    ],
     'react/function-component-definition': [
       2,
       {
